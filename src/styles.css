@@ -1,1 +1,130 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+  font-family: Roboto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body, html {
+  height: 100%;
+}
+
+
+.fill-remaining-space {
+  /*This fills the remaining space, by using flexbox.
+    Every toolbar row uses a flexbox row layout.*/
+  flex: 1 1 auto;
+}
+
+
+.app-splash {
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+}
+
+
+.app-splash .splash-logo {
+
+  width: 100%;
+  height: 100%;
+
+  /* this way asset gets processed by webpack  */
+  background: url(./assets/splash-logo.png) center center no-repeat;
+}
+
+.loading {
+  position: absolute;
+  /* aligned with logo */
+  top: 60%;
+  left:48%;
+}
+.loading-bar {
+  display: inline-block;
+  width: 4px;
+  height: 18px;
+  border-radius: 4px;
+  animation: loading 1s ease-in-out infinite;
+}
+.loading-bar:nth-child(1) {
+  background-color: #3498db;
+  animation-delay: 0;
+}
+.loading-bar:nth-child(2) {
+  background-color: #c0392b;
+  animation-delay: 0.09s;
+}
+.loading-bar:nth-child(3) {
+  background-color: #f1c40f;
+  animation-delay: .18s;
+}
+.loading-bar:nth-child(4) {
+  background-color: #27ae60;
+  animation-delay: .27s;
+}
+
+@keyframes loading {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1, 2.2);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+.app-loading {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.app-loading .spinner {
+  height: 200px;
+  width: 200px;
+  animation: rotate 2s linear infinite;
+  transform-origin: center center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.app-loading .spinner .path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: dash 1.5s ease-in-out infinite;
+  stroke-linecap: round;
+  stroke: #ddd;
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}

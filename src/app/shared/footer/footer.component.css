@@ -1,0 +1,23 @@
+
+.footer-content {
+  padding: 10px 20px 10px 20px;
+  margin: auto;
+  color: #fff;
+  background-color: #063A54;
+}
+
+.footer-wrapper {
+  display: flex;
+  height: 3rem;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.footer-content > .footer-wrapper > img.logo {
+  vertical-align:middle;
+}
+
+.dps {
+    margin-left: 20px;
+  }
+

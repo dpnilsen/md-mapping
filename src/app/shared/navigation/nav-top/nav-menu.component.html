@@ -1,0 +1,16 @@
+<mat-toolbar class="toolbar-top" [style.height.px]="40">
+
+  <button mat-icon-button (click)="toggle()"><mat-icon>menu</mat-icon></button>
+  <span style="letter-spacing:1.1px;color:#063A54" routerLink="/">
+    <span style="color:darkorange;font-family:monospace;font-size:16px;font-weight:bolder;">i</span><span style="font-size:18px;font-weight:bolder;">{{title}}</span>
+  </span>
+
+  <span class="fill-remaining-space"></span>
+
+  <button mat-icon-button (click)="navigate('/home')"><mat-icon>home</mat-icon></button>
+  <button mat-icon-button (click)="toggle()"><mat-icon>messages</mat-icon></button>
+  <button mat-icon-button (click)="toggle()"><mat-icon>settings</mat-icon></button>
+  <button mat-icon-button (click)="toggle()"><mat-icon>more_vert</mat-icon></button>
+</mat-toolbar>
+
+

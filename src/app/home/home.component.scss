@@ -1,0 +1,124 @@
+/* mobile first */
+
+div.home {
+  font-size: 1em;
+  border:0;
+  padding:0;
+  margin:0;
+  height:100%;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+
+  header {
+    padding: 2em 0 2em 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height:5em;
+  }
+
+  div.main-content {
+    border:0;
+    padding:0;
+    margin:0;
+    height:100%;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+
+    aside {
+      padding: 0 2em 0 2em;
+      display:none;
+    }
+
+    aside img {
+      width: 15em;
+    }
+
+    aside.left {
+      min-width: 10em;
+    }
+
+    /* aside.right {} */
+
+    main {
+      height:auto;
+      display: flex;
+      flex-direction: column;
+      padding:2em;
+
+      header {
+        font-style: italic;
+      }
+
+      section article {
+        margin-bottom: 2em;
+        line-height: 1.8em;
+        column-width: 300px;
+        column-gap: 3em;
+        column-rule: 1px dotted #ddd;
+      }
+
+      section article p {
+        text-align:justify;
+        margin-bottom: 1em;
+      }
+
+      section article.p1 {
+        column-count: 1;
+      }
+
+      section article.p2 {
+        column-count: 2;
+      }
+
+      section article.p3 {
+        column-count: 3;
+      }
+
+      footer {
+        font-style: italic;
+      }
+
+    }
+  }
+
+  footer{
+    padding:5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 1em;
+  }
+
+  .grid-item {
+    grid-column: 2; /* Put on the second column */
+  }
+  .grid-item {
+    /* Put in the second column, span 2 columns */
+    grid-column: 2 / span 2;
+  }
+}
+
+/* media adjustments */
+
+@media screen and (min-width : 1000px) {
+  div.home div.main-content aside{
+    display: block;
+  }
+}
+
+@media screen and (min-width : 1600px) {
+  div.home {
+    font-size: 1.2em;
+  }
+  div.home div.main-content aside img {
+    width: 20em;
+  }
+}
