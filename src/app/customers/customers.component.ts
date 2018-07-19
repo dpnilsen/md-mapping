@@ -1,14 +1,14 @@
 import { Component, OnInit, Output } from '@angular/core';
-
+import { Router } from '@angular/router';
 
 import { Customer } from './customer.interface';
 import { CustomersService } from './customers.service';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-customers',
   styleUrls: ['customers.component.scss'],
-  template: 'customers.component.html'
+  templateUrl: 'customers.component.html'
 })
 export class CustomersComponent implements OnInit {
 
@@ -39,7 +39,7 @@ export class CustomersComponent implements OnInit {
       });
   }
 
-  handleEdit(event: Customer){
+  handleEdit(event: Customer) {
 
     this.dataService
       .update(event)
@@ -57,7 +57,7 @@ export class CustomersComponent implements OnInit {
 
   }
 
-  handleView(event: Customer){
+  handleView(event: Customer) {
     this.router.navigate(['/customers', event.id]);
   }
 

@@ -12,7 +12,7 @@ export class NavLeftComponent implements OnInit {
     { name: 'Customers', link : '/customers' }
   ];
 
-  fillerNav = Array(1).fill(0).map((_, i) => `Config`);
+  // fillerNav = Array(1).fill(0).map((_, i) => `Config`);
 
   constructor() { }
 
