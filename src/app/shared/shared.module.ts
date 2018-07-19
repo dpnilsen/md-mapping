@@ -29,7 +29,9 @@ import { NotFoundComponent } from './notfound.component';
   ],
   declarations: [
     HeaderComponent, FooterComponent,
-    InitCapsPipe, ToastComponent, HighlightDirective, ValidatorDirective, MessagesComponent, FilterTextComponent,
+    InitCapsPipe, ToastComponent, HighlightDirective, ValidatorDirective,
+    MessagesComponent,
+    FilterTextComponent,
     EscapeHtmlPipe, EscapeStylePipe,
     NotFoundComponent
   ],
@@ -41,7 +43,8 @@ import { NotFoundComponent } from './notfound.component';
     BrowserAnimationsModule,
     NavigationModule,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MessagesComponent
   ]
 })
 export class SharedModule { }
