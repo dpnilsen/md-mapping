@@ -1,14 +1,14 @@
-<div>
+<div class="customers-wrapper">
 
-  <customer-count
+  <app-customers-count
     [items]="customers">
-  </customer-count>
-  <customer-detail
+  </app-customers-count>
+  <app-customer-detail
     *ngFor="let customer of customers;"
     [detail]="customer"
     (view)="handleView($event)"
     (edit)="handleEdit($event)"
     (remove)="handleRemove($event)">
-  </customer-detail>
+  </app-customer-detail>
 
 </div>
