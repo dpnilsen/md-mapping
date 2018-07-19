@@ -2,6 +2,7 @@ import { Component, Output, ViewChild, ElementRef, Input, OnInit } from '@angula
 import { Router } from '@angular/router';
 
 import { NavMenuService } from '../nav-menu.service';
+import { MessageService } from '../../../core/message.service';
 
 @Component({
   selector: 'app-nav-menu',
@@ -18,6 +19,7 @@ export class NavMenuComponent implements OnInit {
 
   constructor(
     private navMenuService: NavMenuService,
+    private messageService: MessageService,
     private router: Router
   ) {
 
@@ -38,6 +40,11 @@ export class NavMenuComponent implements OnInit {
 
     this.navMenuService.toggle();
 
+  }
+
+  messageBoxToggle() {
+
+    this.messageService.toggle();
   }
 
   navigate(to: string): void {
