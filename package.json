@@ -7,7 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "start:proxy:mock:server": "concurrently --kill-others \"npm run mock:server\" \"npm run start:proxy\"",
+    "start:proxy": "ng serve --proxy-config proxy.conf.json",
+    "mock:server": "json-server --watch mocks/data.json"
   },
   "private": true,
   "dependencies": {
@@ -37,6 +40,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.2.1",
+    "concurrently": "^3.6.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "^2.0.4",
