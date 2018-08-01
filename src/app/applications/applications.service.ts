@@ -4,7 +4,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 
 import { Entity } from '../shared/entity';
-import { Customer } from './models/customer.interface';
+import { Application } from './models/application.interface';
 
 import { MessageService } from '../core/message.service';
 import { HttpErrorHandler, HandleError } from '../core/http-error-handler.service';
@@ -16,10 +16,10 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class CustomersService {
+export class ApplicationsService {
 
-  private url = 'api/customers';  // URL to web api
-  private me = 'CustomersService';
+  private url = 'api/applications';  // URL to web api
+  private me = 'ApplicationsService';
 
   private handleError: HandleError;
 
@@ -31,46 +31,46 @@ export class CustomersService {
     this.handleError = httpErrorHandler.createHandleError(this.me);
   }
 
-  getAll(): Observable<Customer[]> {
-    return this.http.get<Customer[]>(this.url)
+  getAll(): Observable<Application[]> {
+    return this.http.get<Application[]>(this.url)
     .pipe(
       tap(_ => this.log(`${this.me} fetched all entities ${_[0].name}`)),
-      catchError(this.handleError<Customer[]>(`${this.me} getAll`))
+      catchError(this.handleError<Application[]>(`${this.me} getAll`))
     );
   }
 
   /** GET by id. Will 404 if id not found */
-  getById(id: number): Observable<Customer> {
+  getById(id: number): Observable<Application> {
     const url = `${this.url}/${id}`;
-    return this.http.get<Customer>(url).pipe(
+    return this.http.get<Application>(url).pipe(
       tap(_ => this.log(`${this.me} fetched entity id=${id}`)),
-      catchError(this.handleError<Customer>(`${this.me} getById id=${id}`))
+      catchError(this.handleError<Application>(`${this.me} getById id=${id}`))
     );
   }
 
   /* GET entities whose name contains search term */
-  search (term: string): Observable<Customer[]> {
+  search (term: string): Observable<Application[]> {
     if (!term.trim()) {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<Customer[]>(`${this.url}/?name=${term}`).pipe(
+    return this.http.get<Application[]>(`${this.url}/?name=${term}`).pipe(
       tap(_ => this.log(`found entities matching "${term}"`)),
-      catchError(this.handleError<Customer[]>('search', []))
+      catchError(this.handleError<Application[]>('search', []))
     );
   }
 
 
   /** POST: add a new entity */
-  add (entity: Customer): Observable<Customer> {
-    return this.http.post<Customer>(this.url, entity, httpOptions).pipe(
+  add (entity: Application): Observable<Application> {
+    return this.http.post<Application>(this.url, entity, httpOptions).pipe(
       tap(_ => this.log(`added entity id=${entity.id}`)),
-      catchError(this.handleError<Customer>(`${this.me} add entity`))
+      catchError(this.handleError<Application>(`${this.me} add entity`))
     );
   }
 
   /** PUT: update the entity  */
-  update (entity: Customer): Observable<Customer> {
+  update (entity: Application): Observable<Application> {
     const url = `${this.url}/${entity.id}`;
     return this.http.put(url, entity, httpOptions).pipe(
       tap(_ => this.log(`${this.me} updated entity id=${entity.id}`)),
@@ -79,17 +79,19 @@ export class CustomersService {
   }
 
   /** DELETE: delete the entity */
-  delete (entity: Customer | number): Observable<Customer> {
+  delete (entity: Application | number): Observable<Application> {
     const id = typeof entity === 'number' ? entity : entity.id;
     const url = `${this.url}/${id}`;
 
-    return this.http.delete<Customer>(url, httpOptions).pipe(
+    return this.http.delete<Application>(url, httpOptions).pipe(
       tap(_ => this.log(`${this.me} deleted entity id=${id}`)),
-      catchError(this.handleError<Customer>(`${this.me} delete id=${id}`))
+      catchError(this.handleError<Application>(`${this.me} delete id=${id}`))
     );
   }
 
   private log(message: string) {
     this.messageService.add('Info: ' + message);
   }
+
+
 }

@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomersModule } from './customers/customers.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { ApplicationsModule } from './applications/applications.module';
 
 import { HomeComponent } from './home/home.component';
 
@@ -26,7 +27,8 @@ import { HomeComponent } from './home/home.component';
     SharedModule,
     AppRoutingModule,
     CustomersModule,
-    DashboardModule
+    DashboardModule,
+    ApplicationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

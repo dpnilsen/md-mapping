@@ -1,6 +1,6 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 
-import { Customer } from '../customer.interface';
+import { Customer } from '../models/customer.interface';
 
 @Component({
   selector: 'app-customer-form',
@@ -23,6 +23,8 @@ export class CustomerFormComponent {
 
   handleSubmit(customer: Customer, isValid: boolean) {
     if (isValid) {
+
+      console.log('Form emit update ', customer);
         this.update.emit(customer);
     }
   }

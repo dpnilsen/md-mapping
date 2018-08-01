@@ -1,4 +1,30 @@
 div.customer-wrapper{
 
   margin: 2em;
+  .status {
+    width: 10px;
+    height: 10px;
+    background: #c0392b;
+    display: block;
+    margin: 8px 10px 0 0;
+    float: left;
+    border-radius: 50%;
+    &.checked-in {
+      background: #2ecc71;
+    }
+  }
+
+  div.commands{
+
+    margin:2em 0;
+
+    button {
+      margin:0 0 0 2em;
+      &:first-of-type {
+        margin:0;
+      }
+    }
+
+  }
+
 }

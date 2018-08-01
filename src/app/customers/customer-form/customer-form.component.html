@@ -1,40 +1,54 @@
 <form (ngSubmit)="handleSubmit(form.value, form.valid)" #form="ngForm" novalidate>
 
   <div>
-    Passenger name:
+        Record id:
+        <input
+          type="number"
+          name="id"
+          required
+          #id="ngModel"
+          [ngModel]="detail?.id">
+          <div *ngIf="id.errors && id.dirty" class="error">
+            Id is required
+          </div>
+  </div>
+
+  <div>
+    Customer name:
     <input
       type="text"
-      name="fullname"
+      name="name"
       required
       #name="ngModel"
       [ngModel]="detail?.name">
-    <div *ngIf="name.errors && name.dirty" class="error">
-      Passenger name is required
-    </div>
-
+      <div *ngIf="name.errors && name.dirty" class="error">
+        Name is required
+      </div>
   </div>
-  <div>
-    Passenger ID:
-    <input
-      type="number"
-      name="id"
-      required
-      #id="ngModel"
-      [ngModel]="detail?.id">
-    <div *ngIf="id.errors && id.dirty" class="error">
-      Passenger id is required
-    </div>
-    </div>
-      <label>
-        <input
-          type="checkbox"
-          name="checkedIn"
-          [ngModel]="detail?.checkedIn"
-          (ngModelChange)="toggleCheckIn($event)">
-          Yes
-      </label>
 
-    <div>
+  <div>
+    Customer ID:
+    <input
+      type="text"
+      name="customerId"
+      required
+      #customerId="ngModel"
+      [ngModel]="detail?.customerId">
+      <div *ngIf="customerId.errors && customerId.dirty" class="error">
+        Id is required
+      </div>
+  </div>
+
+  <label>
+    <input
+      type="checkbox"
+      name="checkedIn"
+      [ngModel]="detail?.checkedIn"
+      (ngModelChange)="toggleCheckIn($event)">
+      Yes
+  </label>
+
+  <div>
   </div>
 
   <div *ngIf="form.value.checkedIn">
@@ -45,10 +59,8 @@
       [ngModel]="detail?.checkInDate">
   </div>
 
-
-
-  <button type="submit" [disabled]="form.invalid">
-    Update Passenger
+  <button mat-raised-button type="submit" [disabled]="form.invalid">
+    Update
   </button>
 
 </form>
