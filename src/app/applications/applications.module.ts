@@ -17,6 +17,7 @@ import { ApplicationDetailComponent } from './application-detail/application-det
 
 // services
 import { ApplicationsService } from './applications.service';
+import { ApplicationEditComponent } from './application-edit/application-edit.component';
 
 const routes: Routes = [
   {
@@ -38,7 +39,8 @@ const routes: Routes = [
   ],
   declarations: [
     ApplicationsComponent,
-    ApplicationDetailComponent
+    ApplicationDetailComponent,
+    ApplicationEditComponent
   ],
   providers: [
     ApplicationsService

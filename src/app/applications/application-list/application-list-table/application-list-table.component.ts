@@ -2,12 +2,22 @@ import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angu
 import { MatPaginator, MatTableDataSource, MatSort, MatCheckbox } from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
 
+import {animate, state, style, transition, trigger} from '@angular/animations';
+
+
 import { Application } from '../../models/application.interface';
 
 @Component({
   selector: 'app-application-list-table',
   styleUrls: ['./application-list-table.component.scss'],
-  templateUrl: './application-list-table.component.html'
+  templateUrl: './application-list-table.component.html',
+  // animations: [
+  //   trigger('detailExpand', [
+  //     state('collapsed', style({height: '0px', minHeight: '0', display: 'none'})),
+  //     state('expanded', style({height: '*'})),
+  //     transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+  //   ]),
+  // ],
 })
 export class ApplicationListTableComponent implements OnInit {
 
@@ -18,11 +28,11 @@ export class ApplicationListTableComponent implements OnInit {
 
   @Input()
   set data(data: Application[]) {
-    // console.log('Data', data);
     this._data = new MatTableDataSource<Application>(data);
   }
+
   @Input()
-  useCheckbox = true;
+  useCheckbox = false;
 
   @Output()
   view: EventEmitter<Application> = new EventEmitter<Application>();

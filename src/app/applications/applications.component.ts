@@ -12,14 +12,24 @@ import { ListView } from './models/application-list-view.enum';
   selector: 'app-applications',
   styles: ['.commands { display: flex; flex-wrap: wrap; margin:2em; }'],
   template: `
-    <!-- <mat-icon svgIcon="thumbs-up"></mat-icon> -->
     <div class="commands">
+    <mat-toolbar>
     <button mat-icon-button>
     <mat-icon (click)="viewAs('Table')">view_list</mat-icon>
     </button>
     <button mat-icon-button>
     <mat-icon (click)="viewAs('Cards')">view_module</mat-icon>
     </button>
+    <button mat-icon-button>
+    <mat-icon (click)="viewAs('Cards')">add</mat-icon>
+    </button>
+    <button mat-icon-button>
+    <mat-icon (click)="viewAs('Cards')">edit</mat-icon>
+    </button>
+    <button mat-icon-button>
+    <mat-icon (click)="viewAs('Cards')">delete</mat-icon>
+    </button>
+    </mat-toolbar>
     </div>
 
     <app-application-list [data]="applications" [view]="defaultView"></app-application-list>
@@ -28,7 +38,7 @@ import { ListView } from './models/application-list-view.enum';
 export class ApplicationsComponent implements OnInit {
 
   applications: Application[] = [];
-  defaultView: ListView = ListView.Cards;
+  defaultView: ListView = ListView.Table;
   view: ListView = ListView.Cards;
   // view = 'cards';
   // view = 'table';

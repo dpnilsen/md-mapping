@@ -9,6 +9,7 @@ import { nextTick } from '../../../../node_modules/@types/q';
 @Component({
   selector: 'app-application-list',
   template: `
+  <div class="component-wrapper">
   <div *ngIf="tableView; then tableBlock else cardsBlock"></div>
   <ng-template #tableBlock>
   <app-application-list-table [data]="applications"></app-application-list-table>
@@ -16,6 +17,7 @@ import { nextTick } from '../../../../node_modules/@types/q';
   <ng-template #cardsBlock>
   <app-application-list-cards [data]="applications"></app-application-list-cards>
   </ng-template>
+  </div>
   `
 })
 export class ApplicationListComponent implements OnInit, AfterViewInit {

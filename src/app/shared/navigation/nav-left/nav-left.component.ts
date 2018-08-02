@@ -9,7 +9,8 @@ export class NavLeftComponent implements OnInit {
 
   navList: Nav[] = [
     { name: 'Dashboard', link: '/' },
-    { name: 'Customers', link : '/customers' }
+    { name: 'Customers', link : '/customers' },
+    { name: 'Applications', link : '/applications' }
   ];
 
   // fillerNav = Array(1).fill(0).map((_, i) => `Config`);

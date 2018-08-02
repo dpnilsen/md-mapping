@@ -19,6 +19,9 @@ body, html {
   flex: 1 1 auto;
 }
 
+.component-wrapper {
+  margin: 2em;
+}
 
 .app-splash {
   /* position: relative; */
