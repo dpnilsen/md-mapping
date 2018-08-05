@@ -13,12 +13,13 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { ApplicationsModule } from './applications/applications.module';
 
 import { HomeComponent } from './home/home.component';
-
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

@@ -5,10 +5,17 @@ import {
         MatButtonModule, MatToolbarModule, MatCardModule,
         MatIconModule, MatSidenavModule, MatListModule, MatChipsModule,
         MatTableModule, MatPaginatorModule, MatSortModule,
-        MatInputModule, MatFormFieldModule, MatCheckboxModule
+        MatInputModule, MatFormFieldModule, MatCheckboxModule,
+        MatOptionModule, MatSelectModule, MatRadioModule,
+        MatDatepickerModule,
+        MatNativeDateModule
       } from '@angular/material';
+import {
+        MatMomentDateModule
+      } from '@angular/material-moment-adapter';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 
 @NgModule({
@@ -16,7 +23,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatButtonModule, MatToolbarModule, MatCardModule, MatIconModule,
     MatSidenavModule, MatListModule, MatChipsModule, MatTableModule,
     MatPaginatorModule, MatSortModule, MatInputModule, MatFormFieldModule,
-    MatCheckboxModule,
+    MatCheckboxModule, MatOptionModule, MatSelectModule, MatRadioModule, MatDatepickerModule,
+    MatNativeDateModule, MatMomentDateModule,
     LayoutModule,
     BrowserAnimationsModule,
     FlexLayoutModule
@@ -26,7 +34,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatButtonModule, MatToolbarModule, MatCardModule, MatIconModule,
     MatSidenavModule, MatListModule, MatChipsModule, MatTableModule,
     MatPaginatorModule, MatSortModule, MatInputModule, MatFormFieldModule,
-    MatCheckboxModule,
+    MatCheckboxModule, MatOptionModule, MatSelectModule, MatRadioModule, MatDatepickerModule,
+    MatNativeDateModule, MatMomentDateModule,
     LayoutModule,
     BrowserAnimationsModule,
     FlexLayoutModule

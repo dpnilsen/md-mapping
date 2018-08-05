@@ -97,5 +97,16 @@ export class ApplicationListTableComponent implements OnInit {
         this.dataSource.data.forEach(row => this.selection.select(row));
   }
 
+
+  handleSelection(row) {
+
+    if (this.useCheckbox) {
+      this.selection.toggle(row);
+    } else {
+
+      // this.navigate
+    }
+
+  }
   getColumnIcon(icon) { return null; }
 }

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { EditorModule } from '@tinymce/tinymce-angular';
+
 // Shared exports CommonModule, FormsModule, and more ....
 import { SharedModule } from '../shared/shared.module';
 
@@ -25,6 +27,7 @@ const routes: Routes = [
     children: [
       { path: '', component: ApplicationsComponent },
       { path: 'list', component: ApplicationListComponent },
+      { path: 'edit', component: ApplicationEditComponent },
       { path: ':id', component: ApplicationDetailComponent },
     ]
 
@@ -34,6 +37,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     SharedModule,
+    EditorModule,
     ApplicationListModule,
     RouterModule.forChild(routes)
   ],

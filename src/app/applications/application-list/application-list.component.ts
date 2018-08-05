@@ -4,7 +4,7 @@ import { Application } from '../models/application.interface';
 import { ListView } from '../models/application-list-view.enum';
 
 import { ApplicationListService } from './application-list.service';
-import { nextTick } from '../../../../node_modules/@types/q';
+import { nextTick } from 'q';
 
 @Component({
   selector: 'app-application-list',

@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 import { MaterialModule } from './material/material.module';
 
 import { NavigationModule } from './navigation/navigation.module';
+
+import { FormModule } from './form/form.module';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -21,11 +25,18 @@ import { FilterTextComponent } from './filter-text/filter-text.component';
 import { EscapeHtmlPipe } from './keep-html.pipe';
 import { EscapeStylePipe } from './keep-style.pipe';
 import { NotFoundComponent } from './notfound.component';
+import { EditorComponent } from './editor/editor.component';
+import { EditorTinyComponent } from './editor-tiny/editor-tiny.component';
+import { DynamicFieldDirective } from './dynamic-field.directive';
+
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+
 
 @NgModule({
   imports: [
     CommonModule, HttpClientModule, MaterialModule, FormsModule, BrowserAnimationsModule,
-    NavigationModule
+    NavigationModule, ReactiveFormsModule, FormModule,
+    CKEditorModule
   ],
   declarations: [
     HeaderComponent, FooterComponent,
@@ -33,18 +44,27 @@ import { NotFoundComponent } from './notfound.component';
     MessagesComponent,
     FilterTextComponent,
     EscapeHtmlPipe, EscapeStylePipe,
-    NotFoundComponent
+    NotFoundComponent,
+    EditorComponent,
+    EditorTinyComponent,
+    DynamicFieldDirective,
+    DynamicFormComponent
   ],
   exports: [
     CommonModule,
     HttpClientModule,
     MaterialModule,
-    FormsModule,
+    FormsModule, // angular
+    ReactiveFormsModule,
+    FormModule,
     BrowserAnimationsModule,
     NavigationModule,
+    CKEditorModule,
     HeaderComponent,
     FooterComponent,
-    MessagesComponent
+    MessagesComponent,
+    DynamicFieldDirective,
+    DynamicFormComponent
   ]
 })
 export class SharedModule { }
