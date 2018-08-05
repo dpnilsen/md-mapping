@@ -1,0 +1,48 @@
+<div class="component-wrapper">
+    <form (ngSubmit)="onSubmit()">
+
+    <p>
+      <mat-form-field apperance="outline">
+        <mat-label>Fill form field</mat-label>
+        <input matInput #inp minlength="2" maxlength="30" placeholder="Your input">
+        <mat-hint align="end">{{inp.value?.length || 0}}/30</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+          <input matInput placeholder="Enter your email" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field>
+          <input matInput [matDatepicker]="myDatepicker" />
+
+          <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #myDatepicker></mat-datepicker>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field>
+          <input matInput type="date" placeholder="Date">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+          <textarea matInput placeholder="Textarea"></textarea>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <mat-select placeholder="Select">
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+
+    <p>
+    </p>
+    </form>
+</div>

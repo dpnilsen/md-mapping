@@ -1,7 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Customer } from './customer.interface';
+import { Customer } from './models/customer.interface';
 import { CustomersService } from './customers.service';
 
 
@@ -53,7 +53,7 @@ export class CustomersComponent implements OnInit {
       });
 
 
-    console.log(this.customers);
+    console.log('Fetched ', this.customers);
 
   }
 

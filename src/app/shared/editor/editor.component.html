@@ -1,0 +1,20 @@
+
+<ckeditor
+  id="classic-editor"
+  name="classic-editor"
+  [editor]="Editor"
+  [data]="editorData"
+  (ready)="onReady($event)"
+  (change)="onChange($event)"
+	(focus)="onFocus($event)"
+	(blur)="onBlur($event)">
+</ckeditor>
+
+<div class="component-wrapper">
+  <h4>Component events:</h4>
+  <ul>
+    <li *ngFor="let eventInfo of componentEvents">
+    <span>{{ eventInfo }}</span>
+    </li>
+  </ul>
+</div>

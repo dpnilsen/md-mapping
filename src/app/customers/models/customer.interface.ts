@@ -1,4 +1,4 @@
-import { Entity } from '../shared/entity';
+import { Entity } from '../../shared/entity';
 
 export interface Customer extends Entity {
   customerId: number;

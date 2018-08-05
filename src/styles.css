@@ -19,6 +19,12 @@ body, html {
   flex: 1 1 auto;
 }
 
+.component-wrapper {
+  margin: 2em;
+}
+.demo-full-width {
+  width: 100%;
+}
 
 .app-splash {
   /* position: relative; */
@@ -128,3 +134,5 @@ body, html {
     stroke-dashoffset: -124px;
   }
 }
+
+

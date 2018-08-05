@@ -4,21 +4,12 @@ import { switchMap, map } from 'rxjs/operators';
 
 import { CustomersService } from '../customers.service';
 
-import { Customer } from '../customer.interface';
+import { Customer } from '../models/customer.interface';
 
 @Component({
   selector: 'app-customer-viewer',
   styleUrls: ['customer-viewer.component.scss'],
-  template: `
-    <div>
-      <button (click)="goBack()">&lsaquo; Go back</button>
-      <app-customer-form
-        [detail]="customer"
-        (update)="onUpdate($event)">
-
-      </app-customer-form>
-    </div>
-  `
+  templateUrl: 'customer-viewer.component.html'
 })
 export class CustomerViewerComponent implements OnInit {
 
@@ -33,17 +24,11 @@ export class CustomerViewerComponent implements OnInit {
 
     // const id = +this.route.snapshot.paramMap.get('id');
 
-    // this.route.paramMap.subscribe((params: ParamMap) => {
-    //   const id = +params.get('id');
-    //   this.dataService.getById (id)
-    //     .subscribe((data: Customer) => this.customer = data);
-    // });
-
-    this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.dataService.getById (+params.get('id'))
-      ));
-
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      const id = +params.get('id');
+      this.dataService.getById (id)
+        .subscribe((data: Customer) => this.customer = data);
+    });
   }
 
   onUpdate(customer: Customer) {

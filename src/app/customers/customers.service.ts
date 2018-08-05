@@ -4,7 +4,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 
 import { Entity } from '../shared/entity';
-import { Customer } from './customer.interface';
+import { Customer } from './models/customer.interface';
 
 import { MessageService } from '../core/message.service';
 import { HttpErrorHandler, HandleError } from '../core/http-error-handler.service';
@@ -34,7 +34,7 @@ export class CustomersService {
   getAll(): Observable<Customer[]> {
     return this.http.get<Customer[]>(this.url)
     .pipe(
-      tap(_ => this.log(`${this.me} fetched all entities`)),
+      tap(_ => this.log(`${this.me} fetched all entities ${_[0].name}`)),
       catchError(this.handleError<Customer[]>(`${this.me} getAll`))
     );
   }
@@ -70,8 +70,9 @@ export class CustomersService {
   }
 
   /** PUT: update the entity  */
-  update (entity: Entity): Observable<any> {
-    return this.http.put(this.url, entity, httpOptions).pipe(
+  update (entity: Customer): Observable<Customer> {
+    const url = `${this.url}/${entity.id}`;
+    return this.http.put(url, entity, httpOptions).pipe(
       tap(_ => this.log(`${this.me} updated entity id=${entity.id}`)),
       catchError(this.handleError<any>(`${this.me} update entity id=${entity.id}`))
     );

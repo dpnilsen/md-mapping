@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angu
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Customer } from '../customer.interface';
+import { Customer } from '../models/customer.interface';
 
 @Component({
   selector: 'app-customer-detail',
@@ -25,7 +25,7 @@ export class CustomerDetailComponent implements OnChanges {
 
   editing = false;
 
-  private customer: Customer;
+  // private customer: Customer;
 
   constructor(
     private route: ActivatedRoute,
@@ -43,6 +43,8 @@ export class CustomerDetailComponent implements OnChanges {
   onNameChanged(value: string) {
 
     this.detail.name = value;
+
+    console.log('value:', value);
 
   }
   // get(): void {

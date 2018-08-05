@@ -1,6 +1,39 @@
 <div class="customer-wrapper">
+  <div>
+    <span class="status" [class.checked-in]="detail.checkedIn"></span>
 
+      <div *ngIf="editing">
+        <input
+          type="text"
+          [value]="detail.name"
+          (input)="onNameChanged(name.value)"
+          #name>
+      </div>
 
-  <div>{{detail.name}}</div>
+      <div *ngIf="!editing">{{ detail.name }}</div>
+
+      <div class="date">
+        Check in date:
+        {{ detail.checkInDate ? (detail.checkInDate | date: 'yMMMMd' | uppercase) : 'Not checked in' }}
+      </div>
+
+      <div role="group" class="commands">
+
+        <button mat-raised-button (click)="toggleEdit()">
+          {{ editing ? 'Done' : 'Edit' }}
+        </button>
+
+        <button mat-raised-button color="accent" (click)="onRemove()">
+          Remove
+        </button>
+
+        <button mat-raised-button  color="primary" (click)="goTo()">
+          View
+        </button>
+
+      </div>
+
+    </div>
+
 
 </div>
